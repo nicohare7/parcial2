@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %} {% block tittle %} Materias {% endblock %} {% block contents %}
+
+<div class="overlay">
+    <br>
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-primary">
+        Inicio
+    </a>
+    <a href="{{ url_for('listCourses') }}" type="submit" class="btn btn-primary">
+        Listar
+    </a>
+    <form action="{{ url_for('createCourse') }}" method="POST">
+        <div class="con">
+            <header class="head-form">
+                <h1>Crear Espacio academico</h1>
+            </header>
+            <div class="field-set">
+                <label style="margin-right: 2.5rem" for="">Nombre materia</label>
+                <br>
+                <input class="form-input" id="txt-input" type="text" name="materia" placeholder=""><br>
+                <label style="margin-right: 1.5rem" for="">Semestre</label>
+                <br>
+                <select style="margin-top: 0.5rem" name="semestre">
+                    <option value="0" selected disabled>Seleccionar semestre</option>
+                    <option value="1">1. Primero</option>
+                    <option value="2">2. Segundo</option>
+                    <option value="3">3. Tercero</option>
+                    <option value="4">4. Cuarto</option>
+                    <option value="5">5. Quinto</option>
+                    <option value="6">6. Sexto</option>
+                    <option value="7">7. Septimo</option>
+                    <option value="8">8. Octavo</option>
+                    <option value="9">9. Noveno</option>
+                    <option value="10">10. Decimo</option>
+                </select><br>
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}

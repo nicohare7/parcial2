@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %} {% block tittle %} Usuarios {% endblock %} {% block contents %}
+
+<body>
+    <div class="text-end" style="margin-top: 1rem">
+        <a href="{{ url_for('index') }}" type="submit" class="btn btn-outline-light">
+            Home
+        </a>
+    </div>
+    <div>
+        <form action="{{ url_for('updateStudent', id=id) }}" method="POST">
+            <div class="con">
+                <header class="head-form">
+                    <h1 class="display-4 text-center">Update Student</h1>
+                </header>
+                <div class="field-set">
+                    <label class="label" for="">Id</label>
+                    <br>
+                    <input class="form-input" id="txt-input"
+                        type="text" value="{{ id }}" name="id" disabled><br>
+                    <label class="label" for="">Identification</label>
+                    <br>
+                    <input class="form-input" id="txt-input"
+                        type="text" value="{{ uid }}" name="uid" placeholder=""><br>
+                    <label class="label" for="">Names</label>
+                    <br>
+                    <input class="form-input" id="txt-input" type="text"
+                        value="{{ nombre }}" name="nombre" placeholder=""><br>
+                    <label class="label" for="">Last Names</label>
+                    <br>
+                    <input class="form-input" id="txt-input" type="text"
+                        value="{{apellido}}" name="apellido" placeholder=""><br>
+                    <label class="label" for="">Phone</label>
+                    <br>
+                    <input class="form-input" id="txt" type="text" name="telefono"
+                        value="{{telefono}}" placeholder=""><br>
+                    <label class="label" for="">Email</label>
+                    <br>
+                    <input class="form-input" type="text" id="pwd" name="email"
+                        value="{{email}}" placeholder=""><br>
+                    <label class="label">Semester</label>
+                    <br>
+                    <select class="select" name="semestre">
+                        <option value="0" selected disabled>Select Semester</option>
+                        <option value="1">1. First</option>
+                        <option value="2">2. Second</option>
+                        <option value="3">3. Third</option>
+                        <option value="4">4. Fourth</option>
+                        <option value="5">5. Fifth</option>
+                        <option value="6">6. Sixth</option>
+                        <option value="7">7. Seventh</option>
+                        <option value="8">8. Eighth</option>
+                        <option value="9">9. Ninth</option>
+                        <option value="10">10. Tenth</option>
+                    </select><br>
+                    <label class="label" for="">Courses</label>
+                    <br>
+                    <select class="select" name="curso" method="GET"
+                        action="">
+                        <option value="0" selected disabled>Select Course</option>
+                        <option value="{{ curso }}">{{curso}}</option>"
+                    </select><br>
+                    <br>
+                    <br>
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-primary text-center">
+                            actualizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

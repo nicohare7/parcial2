@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %} {% block tittle %} Usuarios {% endblock %} {% block contents %}
+<div class="overlay">
+    <br>
+    <br>
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-dark">
+        Inicio
+    </a>
+    <br>
+    <br>
+
+        <table class="table table-responsive table-bordered" style="background-color: whitesmoke" id="students"
+            cellspacing="10px">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Identificación</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Semestre</th>
+                    <th scope="col">Curso</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{ s.0 }}</td>
+                    <td>{{ s.1 }}</td>
+                    <td>{{ s.2 }}</td>
+                    <td>{{ s.3 }}</td>
+                    <td>{{ s.4 }}</td>
+                    <td>{{ s.5 }}</td>
+                    <td>{{ s.6 }}</td>
+                    <td>{{ s.7 }}</td>
+                    <td>
+                    <a method="PUT" href="/updatetemp/{{ s.0 }}" class="btn btn-primary">
+                        actualizar
+                    </a>                 
+                    <a method="POST" href="/delete/{{ s.0 }}" class="btn btn-primary">
+                        eliminar
+                    </a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+</div>
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %} {% block tittle %} Usuarios {% endblock %} {% block contents %}
+
+<div class="overlay">
+    <br>   
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-primary">
+        Inicio
+    </a>
+    <br>
+    <br>
+    <table class="table table-responsive table-bordered" style="background-color: whitesmoke" id="students"
+        cellspacing="10px">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">materia</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in courses %}
+            <tr>
+                <td>{{ c.0 }}</td>
+                <td>{{ c.1 }}</td>
+                <td>{{ c.2 }}</td>
+                <td>
+                    <a method="POST" href="/course/delete/{{ c.0 }}" class="btn btn-primary">
+                        eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}

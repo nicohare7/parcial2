@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %} {% block tittle %} Moddle {% endblock %} {% block contents %}
+
+<h1 class="display-1" align="center">Moddle Itp</h1>
+<br>
+
+<br>
+<br>
+<br>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('index') }}" type="submit">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('crearEstudiantes') }}" type="submit">Estudiantes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/crearMaterias" type="submit">Materias</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('listSessionPreview') }}" type="submit">Asistencia</a>
+      </li>
+    </ul>
+  </nav>
+{% endblock %}
+
+{% block login_css %}
+
+
+{% endblock %}

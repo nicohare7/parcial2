@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %} {% block tittle %} Sesiones {% endblock %} {% block contents %}
+
+<div class="overlay">
+    <br>
+    <br>
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-primary">
+        Inicio
+    </a>
+    <a href="{{ url_for('listSessionPreview') }}" type="submit" class="btn btn-primary">
+        Listar
+    </a>
+    <form action="{{ url_for('createSession') }}" method="POST">
+        <div class="con">
+            <header class="head-form">
+                <h1>Crear Sesiones</h1>
+            </header>
+            <div class="field-set">
+                <br>
+                <br>
+                <label style="margin-right: 3rem" for="">materias</label>
+                <br>
+                <select style="margin-top: 0.5rem" name="course"
+                    method="GET" action="">
+                    <option value="0" selected disabled>Seleccionar Materias</option>
+                    {% for c in courses %}
+                    <option value="{{ c.1 }}">{{c.1}}</option>
+                    {% endfor %}
+                </select><br>
+                <label style="margin-right: 4.3rem" for="">Fecha</label>
+                <br>
+                <input class="form-input" id="txt-input"
+                    type="date" name="date" placeholder=""><br>
+                <label style="margin-right: 2rem" for="">Hora de Inicio</label>
+                <br>
+                <select style="margin-top: 0.5rem" name="starttime"
+                    method="GET" action="">
+                    <option value="0" selected disabled>Seleccionar hora de inicio</option>
+                    <option value="06:30">06:30 PM</option>
+                    <option value="07:30">07:30 PM</option>
+                    <option value="08:45">08:45 PM</option>
+                    <option value="09:45">09:45 PM</option>
+                </select><br>
+                <label style="margin-right: 2.5rem" for="">Hora de finalizacion</label>
+                <br>
+                <select style="margin-top: 0.5rem" name="endtime"
+                    method="GET" action="">
+                    <option value="0" selected disabled>Seleccionar hora de finalización</option>
+                    <option value="07:30">07:30 PM</option>
+                    <option value="08:45">08:45 PM</option>
+                    <option value="09:45">09:45 PM</option>
+                    <option value="10:45">10:45 PM</option>
+                </select><br>
+                <br>
+
+                <button type="submit" class="btn btn-primary">
+                    Crear
+                </button>
+            </div>
+        </div>
+    </form>
+    
+</div>
+
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}

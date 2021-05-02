@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %} {% block tittle %} Usuarios {% endblock %} {% block contents %}
+
+<div class="overlay">    
+    <br>
+    <a href="{{ url_for('listStudent') }}" type="submit" class="btn btn-primary">
+        Listar
+    </a>    
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-primary">
+        Inicio
+    </a>
+    <form action="{{ url_for('createStudent') }}" method="POST">
+        <div class="con">
+            <header class="head-form">
+                <h1>Registro de estudiantes</h1>
+            </header>
+            <div class="field-set">
+                <br>
+                <br>
+                <label style="margin-right: 1rem" for="">Identificación</label>
+                <br>
+                <input class="form-input" id="txt-input"
+                    type="text" name="uid" placeholder="Identificación">
+                    <br>
+                <label style="margin-right: 3.5rem" for="">Nombre</label>
+                <br>
+                <input class="form-input" id="txt-input"
+                    type="text" name="nombre" placeholder="Nombre">
+                    <br>
+                <label style="margin-right: 1.5rem" for="">Apellido</label>
+                <br>
+                <input class="form-input" id="txt-input"
+                    type="text" name="apellido" placeholder="Apellido">
+                    <br>
+                <label style="margin-right: 3.7rem" for="">Telefono</label>
+                <br>
+                <input class="form-input" id="txt" type="text"
+                    name="telefono" placeholder="Telefono">
+                    <br>
+                <label style="margin-right: 4rem" for="">Email</label>
+                <br>
+                <input class="form-input" type="text" id="pwd"
+                    name="email" placeholder="Email">
+                    <br>
+                <label style="margin-right: 2.5rem" for="">Semestre</label>
+                <br>
+                <input class="form-input" type="text"
+                    id="pwd" name="semestre" placeholder="Semestre">
+                    <br>
+                <label style="margin-right: 3rem" for="">Cursos</label>
+                <br>
+                <select style="margin-top: 0.5rem" name="curso" method="GET" action="">
+                    <option value="0" selected disabled>Seleccionar Curso</option>
+                    {% for c in courses %}
+                    <option value="{{ c.0 }}">{{c.1}}</option>"
+                    {% endfor %}
+                </select><br>
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>    
+</div>
+
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}

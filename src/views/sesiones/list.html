@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %} {% block tittle %} Usuarios {% endblock %} {% block contents %}
+<h1 class="tittle-center">Sesiones</h1>
+<div class="overlay">
+    <a href="{{ url_for('index') }}" type="submit" class="btn btn-primary">
+        Inicio
+    </a>
+    <a href="{{ url_for('crearSesiones') }}" class="btn btn-dark" type="submit" class="btn btn-primary">
+        Crear
+    </a>    
+</div>
+<div>
+    {% for s in sessions %}
+    <div class="container">
+        <br>
+        <br>
+        <table class="table">
+        <h1>{{s.1}}</h1>
+        <th scope="col">
+            <label for="">Fecha</label><p>{{s.2}}</p>
+        </th>
+        <th scope="col">
+            <label for="">Inicio de hora</label><p>{{s.3}}</p>
+        </th>
+        <th scope="col">
+            <label for="">Fin hora</label><p>{{s.4}}</p>
+        
+        </th>               
+        
+        <a method="POST" href="/session/delete/{{ s.0 }}" class="btn btn-primary">
+            eliminar
+        </a>
+    </div>   
+
+    {% endfor %}
+    
+</div>
+
+{% endblock %}
+{% block login_css %}
+
+{% endblock %}
